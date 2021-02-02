@@ -16,7 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'cd praeco; PRAECO_ELASTICSEARCH=10.0.2.15 docker-compose -p "praeco" up -d
+                sh 'PRAECO_ELASTICSEARCH=10.0.2.15 docker-compose -p "praeco" up -d'
             }
         }
     }
