@@ -12,8 +12,9 @@ services:
 
   webapp:
     image: 'praecoapp/praeco'
-    ports:
-      - 8080:8080
+    networks:
+      main-overlay:
+        ipv4_address: 10.0.2.94 
 #    environment:
 #      VUE_APP_BASE_URL: /my-path/
 
