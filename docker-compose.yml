@@ -18,6 +18,6 @@ services:
 #    environment:
 #      VUE_APP_BASE_URL: /my-path/
 
-  networks:
-    main-overlay:
-      external: true
+networks:
+  main-overlay:
+    external: true
