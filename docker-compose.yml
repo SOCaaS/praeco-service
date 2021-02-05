@@ -3,24 +3,21 @@ version: '3'
 services:
   elastalert:
     image: 'praecoapp/elastalert-server'
-    ports:
-      - 3030:3030
-      - 3333:3333
-    volumes:
-      - ./config/elastalert.yaml:/opt/elastalert/config.yaml
-      - ./config/api.config.json:/opt/elastalert-server/config/config.json
-      - ./rules:/opt/elastalert/rules
-      - ./rule_templates:/opt/elastalert/rule_templates
+    networks:
+      main-overlay:
+        ipv4_address: 10.0.2.93  
+
     extra_hosts:
       - 'elasticsearch:${PRAECO_ELASTICSEARCH}'
 
   webapp:
     image: 'praecoapp/praeco'
-    ports:
-      - 8080:8080
+    networks:
+      main-overlay:
+        ipv4_address: 10.0.2.94 
 #    environment:
 #      VUE_APP_BASE_URL: /my-path/
-    volumes:
-      - ./public/praeco.config.json:/var/www/html/praeco.config.json
-      - ./nginx_config/nginx.conf:/etc/nginx/nginx.conf
-      - ./nginx_config/default.conf:/etc/nginx/conf.d/default.conf
+
+  networks:
+    main-overlay:
+      external: true
