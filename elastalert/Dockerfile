@@ -1,4 +1,4 @@
-FROM elastalert-server
+FROM praecoapp/elastalert-server
 
 ADD config/elastalert.yaml /opt/elastalert/config.yaml
 ADD config/api.config.json /opt/elastalert-server/config/config.json

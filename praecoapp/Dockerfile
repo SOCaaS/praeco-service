@@ -1,4 +1,4 @@
-FROM elastalert-server
+FROM praecoapp/praeco
 
 ADD public/praeco.config.json /var/www/html/praeco.config.json
 ADD nginx_config/nginx.conf /etc/nginx/nginx.conf
