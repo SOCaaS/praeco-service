@@ -2,7 +2,9 @@ version: '3'
 
 services:
   elastalert:
-    image: 'praecoapp/elastalert-server'
+    image: 'elastalert-server'
+    build: 
+      context: elastalert/
     networks:
       main-overlay:
         ipv4_address: 10.0.2.93  
@@ -11,7 +13,9 @@ services:
       - 'elasticsearch:${PRAECO_ELASTICSEARCH}'
 
   webapp:
-    image: 'praecoapp/praeco'
+    image: 'praeco'
+    build: 
+      context: praecoapp/
     networks:
       main-overlay:
         ipv4_address: 10.0.2.94 
