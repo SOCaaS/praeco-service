@@ -16,7 +16,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-                sh 'PRAECO_ELASTICSEARCH=10.0.2.15  docker-compose -p "praeco" up --force-recreate --build -d'
+                sh 'docker-compose -p "praeco" down'
             }
         }
     }
